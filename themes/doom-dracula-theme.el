@@ -127,7 +127,8 @@ determine the exact padding."
   (((line-number &override) :foreground base5)
    ((line-number-current-line &override) :foreground fg)
    ((font-lock-comment-face &override)
-    :background (if doom-dracula-comment-bg (doom-lighten bg 0.05)))
+    :background (if doom-dracula-comment-bg (doom-lighten bg 0.05))
+    :foreground comments)
    (mode-line
     :background modeline-bg :foreground modeline-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))
@@ -136,6 +137,19 @@ determine the exact padding."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground (if -modeline-bright base8 highlight))
 
+   ;;; syntax
+   (font-lock-builtin-face :foreground builtin)
+   (font-lock-constant-face :foreground constants)
+   (font-lock-doc-face :foreground doc-comments)
+   (font-lock-function-name-face :foreground functions :bold t)
+   (font-lock-keyword-face :foreground keywords :bold t)
+   (font-lock-negation-char-face :foreground constants)
+   (font-lock-reference-face :foreground constants)
+   (font-lock-string-face :foreground strings)
+   (font-lock-type-face :foreground type)
+   (font-lock-variable-name-face :foreground variables)
+   (font-lock-warning-face :foreground warning :background bg-alt)
+   (font-lock-error-face :foreground strings :background red :bolt t)
    ;;;; company
    (company-tooltip-selection     :background base3)
    ;;;; css-mode <built-in> / scss-mode
