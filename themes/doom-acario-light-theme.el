@@ -115,7 +115,8 @@ determine the exact padding."
   ;;;; Base theme face overrides
   (((font-lock-comment-face &override)
     :slant 'italic
-    :background (if doom-acario-light-comment-bg (doom-darken bg 0.05)))
+    :background (if doom-acario-light-comment-bg (doom-darken bg 0.05))
+    :foreground comments)
    ((line-number &override) :foreground base4)
    ((line-number-current-line &override) :foreground orange)
    (mode-line
@@ -127,6 +128,19 @@ determine the exact padding."
    (mode-line-emphasis
     :foreground (if -modeline-dark base8 highlight))
 
+   ;;; syntax
+   (font-lock-builtin-face :foreground builtin)
+   (font-lock-constant-face :foreground constants)
+   (font-lock-doc-face :foreground doc-comments)
+   (font-lock-function-name-face :foreground functions :bold t)
+   (font-lock-keyword-face :foreground keywords :bold t)
+   (font-lock-negation-char-face :foreground constants)
+   (font-lock-reference-face :foreground constants)
+   (font-lock-string-face :foreground strings)
+   (font-lock-type-face :foreground type)
+   (font-lock-variable-name-face :foreground variables)
+   (font-lock-warning-face :foreground warning :background bg-alt)
+   (font-lock-error-face :foreground strings :background red :bolt t)
    ;;;; elscreen
    (elscreen-tab-other-screen-face :background bg-blue :foreground fg-alt)
    ;;;; doom-modeline
@@ -239,6 +253,34 @@ determine the exact padding."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
    ;;;; treemacs
    (treemacs-root-face :foreground strings :weight 'bold :height 1.2)
+   ;;;; tuareg-mode
+   (tuareg-font-lock-governing-face :foreground strings :bold t)
+   (tuareg-font-lock-multistage-face :foreground comments :background base3 :bold t)
+   (tuareg-font-lock-line-number-face :foreground base3)
+   (tuareg-font-lock-operator-face :foreground strings)
+   (tuareg-font-lock-module-face :inherit font-lock-type-face :bold t)
+   (tuareg-font-lock-constructor-face :foreground constants :bold t)
+   (tuareg-font-lock-error-face :foreground strings :background red :bold t)
+   (tuareg-font-lock-interactive-output-face :foreground base3)
+   (tuareg-font-lock-interactive-error-face :inherit font-lock-warning-face)
+   ;;;; web-mode
+   (web-mode-builtin-face :inherit font-lock-builtin-face)
+   (web-mode-comment-face :inherit font-lock-comment-face)
+   (web-mode-constant-face :inherit font-lock-constant-face)
+   (web-mode-doctype-face :inherit font-lock-comment-face)
+   (web-mode-function-name-face :inherit font-lock-function-name-face)
+   (web-mode-css-selector-face :foreground type)
+   (web-mode-html-attr-name-face :foreground type)
+   (web-mode-html-attr-value-face :foreground functions)
+   (web-mode-html-tag-bracket-face :inherit 'default)
+   (web-mode-html-tag-face :foreground keywords :weight 'bold)
+   (web-mode-keyword-face :foreground keywords)
+   (web-mode-preprocessor-face :foreground orange)
+   (web-mode-string-face :foreground strings)
+   (web-mode-type-face :inherit font-lock-type-face)
+   (web-mode-warning-face :inherit font-lock-warning-face)
+   ;;;; which-func
+   (which-func :inherit font-lock-function-name-face)
    ;;;; whitespace <built-in>
    (whitespace-indentation :inherit 'default)
    (whitespace-big-indent :inherit 'default))

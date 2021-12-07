@@ -133,7 +133,8 @@ Can be an integer to determine the exact padding."
   (((line-number &override) :foreground base4)
    ((line-number-current-line &override) :foreground fg)
    ((font-lock-comment-face &override)
-    :background (if doom-one-brighter-comments (doom-lighten bg 0.05)))
+    :background (if doom-one-brighter-comments (doom-lighten bg 0.05))
+    :foreground comments)
    (mode-line
     :background modeline-bg :foreground modeline-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))
@@ -142,6 +143,19 @@ Can be an integer to determine the exact padding."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground (if doom-one-brighter-modeline base8 highlight))
 
+   ;;; syntax
+   (font-lock-builtin-face :foreground builtin)
+   (font-lock-constant-face :foreground constants)
+   (font-lock-doc-face :foreground doc-comments)
+   (font-lock-function-name-face :foreground functions :bold t)
+   (font-lock-keyword-face :foreground keywords :bold t)
+   (font-lock-negation-char-face :foreground constants)
+   (font-lock-reference-face :foreground constants)
+   (font-lock-string-face :foreground strings)
+   (font-lock-type-face :foreground type)
+   (font-lock-variable-name-face :foreground variables)
+   (font-lock-warning-face :foreground warning :background bg-alt)
+   (font-lock-error-face :foreground strings :background red :bolt t)
    ;;;; css-mode <built-in> / scss-mode
    (css-proprietary-property :foreground orange)
    (css-property             :foreground green)
@@ -157,6 +171,21 @@ Can be an integer to determine the exact padding."
    (ivy-current-match :background dark-blue :distant-foreground base0 :weight 'normal)
    ;;;; LaTeX-mode
    (font-latex-math-face :foreground green)
+   ;;;; magit
+   (magit-branch :foreground constants :bold t)
+   (magit-diff-context-highlight :background base2)
+   (magit-diff-file-header :foreground fg-alt :background base2)
+   (magit-diffstat-added :foreground type)
+   (magit-diffstat-removed :foreground variables)
+   (magit-hash :foreground fg-alt)
+   (magit-hunk-heading :background base2)
+   (magit-hunk-heading-highlight :background base2)
+   (magit-item-highlight :background base2)
+   (magit-log-author :foreground fg-alt)
+   (magit-process-ng :foreground warning :bold t)
+   (magit-process-ok :foreground functions :bold t)
+   (magit-section-heading :foreground keywords :bold t)
+   (magit-section-highlight :background base2)
    ;;;; markdown-mode
    (markdown-markup-face :foreground base5)
    (markdown-header-face :inherit 'bold :foreground red)
@@ -172,7 +201,36 @@ Can be an integer to determine the exact padding."
    (solaire-mode-line-inactive-face
     :inherit 'mode-line-inactive
     :background modeline-bg-inactive-alt
-    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-alt))))
+    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-alt)))
+   ;;;; tuareg-mode
+   (tuareg-font-lock-governing-face :foreground strings :bold t)
+   (tuareg-font-lock-multistage-face :foreground comments :background base3 :bold t)
+   (tuareg-font-lock-line-number-face :foreground base3)
+   (tuareg-font-lock-operator-face :foreground strings)
+   (tuareg-font-lock-module-face :inherit font-lock-type-face :bold t)
+   (tuareg-font-lock-constructor-face :foreground constants :bold t)
+   (tuareg-font-lock-error-face :foreground strings :background red :bold t)
+   (tuareg-font-lock-interactive-output-face :foreground base3)
+   (tuareg-font-lock-interactive-error-face :inherit font-lock-warning-face)
+   ;;;; web-mode
+   (web-mode-builtin-face :inherit font-lock-builtin-face)
+   (web-mode-comment-face :inherit font-lock-comment-face)
+   (web-mode-constant-face :inherit font-lock-constant-face)
+   (web-mode-doctype-face :inherit font-lock-comment-face)
+   (web-mode-function-name-face :inherit font-lock-function-name-face)
+   (web-mode-css-selector-face :foreground type)
+   (web-mode-html-attr-name-face :foreground type)
+   (web-mode-html-attr-value-face :foreground functions)
+   (web-mode-html-tag-bracket-face :inherit 'default)
+   (web-mode-html-tag-face :foreground keywords :weight 'bold)
+   (web-mode-keyword-face :foreground keywords)
+   (web-mode-preprocessor-face :foreground orange)
+   (web-mode-string-face :foreground strings)
+   (web-mode-type-face :inherit font-lock-type-face)
+   (web-mode-warning-face :inherit font-lock-warning-face)
+
+   ;;;; which-func
+   (which-func :inherit font-lock-function-name-face))
 
   ;;;; Base theme variable overrides-
   ())
