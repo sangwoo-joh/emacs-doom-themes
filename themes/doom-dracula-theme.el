@@ -276,8 +276,10 @@ determine the exact padding."
    (web-mode-preprocessor-face :foreground orange)
    (web-mode-string-face :foreground strings)
    (web-mode-type-face :inherit font-lock-type-face)
-   (web-mode-warning-face :inherit font-lock-warning-face))
+   (web-mode-warning-face :inherit font-lock-warning-face)
 
+   ;;;; which-func
+   (which-func :inherit font-lock-function-name-face))
   ;;;; Base theme variable overrides-
   ()
   )
