@@ -236,6 +236,16 @@ determine the exact padding."
     :background modeline-bg-inactive-l
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
    (solaire-region-face :background region-alt)
+   ;;;; tuareg-mode
+   (tuareg-font-lock-governing-face :foreground strings :bold t)
+   (tuareg-font-lock-multistage-face :foreground comments :background base3 :bold t)
+   (tuareg-font-lock-line-number-face :foreground base3)
+   (tuareg-font-lock-operator-face :foreground strings)
+   (tuareg-font-lock-module-face :inherit font-lock-type-face :bold t)
+   (tuareg-font-lock-constructor-face :foreground constants :bold t)
+   (tuareg-font-lock-error-face :foreground strings :background red :bold t)
+   (tuareg-font-lock-interactive-output-face :foreground base3)
+   (tuareg-font-lock-interactive-error-face :inherit font-lock-warning-face)
    ;;;; web-mode
    (web-mode-builtin-face :foreground orange)
    (web-mode-css-selector-face :foreground green)
